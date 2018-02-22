@@ -1,0 +1,20 @@
+Bootstrap:docker
+From:ubuntu:latest
+
+%post
+/bin/sh build.sh
+
+%files
+#Installation of tool
+build.sh
+
+%environment
+#Set your toolname here and the appropriate version to have this in the metadata of your container
+    QIIME2=2018-2
+
+%runscript
+export PATH="/usr/bin/miniconda/bin:/usr/bin/miniconda/envs/qiime2-2018.2/bin<module>:$PATH"
+
+
+%labels
+Maintainer	alexander.peltzer@uni-tuebingen.de
